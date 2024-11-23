@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/website/favicon.png" type="image/x-icon" />
+    <title>Registration Form</title>
+    <script src="scripts/console.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .error {
+            color: #ff4d4f;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <form action="/registermember" method="post" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Add Member</h2>
+        
+        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" id="username" name="username" required class="mt-1 mb-4 p-3 border border-gray-300 rounded w-full focus:ring-blue-500 focus:border-blue-500">
+        
+        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+        <input type="email" id="email" name="email" required class="mt-1 mb-4 p-3 border border-gray-300 rounded w-full focus:ring-blue-500 focus:border-blue-500">
+        
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" id="password" name="password" required class="mt-1 mb-4 p-3 border border-gray-300 rounded w-full focus:ring-blue-500 focus:border-blue-500">
+        
+        <input type="submit" value="Register" class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 cursor-pointer">
+        
+        <% if(error){ %>
+        <p class="error"> <%= error %></p>
+        <% } %>
+    </form>
+</body>
+</html>

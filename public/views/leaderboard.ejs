@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Rankings</title>
+    <link rel="stylesheet" href="styles/cursor.css" />
+    <link rel="stylesheet" href="styles/leaderboard.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/images/website/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+    <script>
+      setInterval(() => {
+          window.location.reload();
+      }, 60000);
+  </script>
+   <script src="scripts/console.js"></script>
+  </head>
+  <body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  
+
+
+         <div class="nav">
+          <div class="artist">Leaderboard</div>
+          <div class="social-media">
+            <ul>
+              <li>
+                <a href="/">Dashboard</a>
+              </li>
+              <li>
+                <a href="/cryptic">Cryptic</a>
+              </li>
+            </ul>
+            <div class="menu">
+              <a href="/logout"><ion-icon name="power"></ion-icon></a>
+            </div>
+          
+          </div>
+          <i class="fa-solid fa-bars icon"></i>
+        </div>
+     
+   
+    <video
+      src="https://res.cloudinary.com/dvhwz7ptr/video/upload/f_auto:video,q_auto/ovc1pcbq0lhthc8w5mgo"
+      autoplay
+      muted
+      loop
+      id="back"
+      class="back"
+    ></video>
+    <div class="leadhead"> 
+      <h1 style="margin-top: 7vh" class="leadhead">Leaderboard</h1>
+    </div>
+   
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Team Name</th>
+            <% if(scores){ %>
+            <th>Scores</th>
+            <% } %>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < teamsData.length; i++) { %>
+          <tr>
+            <td class="rank"><%= i + 1 %></td>
+            <td class="team-name"><%= teamsData[i].teamName %></td>
+            <% if(scores){ %>
+            <td class="score"><%= teamsData[i].questionData.score %></td>
+            <% } %>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <script src="scripts/cursor.js"> </script>
+
+
+    <script>
+      function toggleNavbar() {
+          var iconNavbar = document.querySelector('.nav .icon');
+          var isClickInside = iconNavbar.contains(event.target);
+  
+          if (!isClickInside) {
+              var navbarOptions = document.querySelector('.social-media');
+              navbarOptions.style.display = 'none';
+          }
+      }
+  
+      function checkScreenSize() {
+          if (window.matchMedia("(max-width: 500px)").matches) {
+              document.addEventListener('click', toggleNavbar);
+  
+              var icon = document.querySelector('.nav .icon');
+              icon.addEventListener('click', function() {
+                  var navbarOptions = document.querySelector('.social-media');
+                  if (navbarOptions.style.display === 'flex') {
+                      navbarOptions.style.display = 'none';
+                  } else {
+                      navbarOptions.style.display = 'flex';
+                  }
+              });
+          } else {
+              document.removeEventListener('click', toggleNavbar);
+          }
+      }
+  
+      checkScreenSize();
+  
+      window.addEventListener('resize', checkScreenSize);
+  </script>
+  
+   
+  </body>
+
+</html>
